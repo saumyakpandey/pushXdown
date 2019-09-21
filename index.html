@@ -1,9 +1,5 @@
 <!doctype html>
 <html lang="en">
-
-<html>
-
-<head>
     <meta charset="UTF-8">
     <title>pushXdown</title>
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -31,10 +27,11 @@
             background: linear-gradient(-90deg, lightblue, rgb(161, 71, 71));
             /* Standard syntax */
         }
-       
+
         .main {
             margin: 100px auto;
             text-align: center;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         }
 
         button {
@@ -46,12 +43,25 @@
             border: 1px solid lightblue;
             color: lightblue;
         }
+
+        #screens {
+            display: flex;
+            width: 100vw;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+        }
+
+        .screen {
+            flex: 0 0 100vw;
+            min-height: calc(100vh);
+            scroll-snap-align: start;
+        }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <meta name="author" content="Saumyak Pandey">
     <meta name="description" content="A fun little webapp PWA in making for ease of hard working pushUps freaks!">
     <meta name="theme-color" content="#3ab845" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/icon.png">
     <link rel="icon" type="image/png" href="/assets/icons/icon.png" sizes="512x512">
@@ -61,13 +71,25 @@
 
 <body>
     <div class="main">
-
-        <h3>How's THE FUCKIN' Josh!</h3>
-        <button id="click">Work HARD<br>Play HARDER</button>
-
-        <h5>Good practice: keep your motherfuckin back straight</h5>
+        <nav id="navbar">pushXdown</nav>
+        <main id="screens">
+            <div id="first-screen" class="screen">
+                <div>
+                    <h2>PushXCount</h2>
+                </div>
+            </div>
+            <div id="counter-screen" class="screen">
+                <div>
+                    <h3>What's Good!</h3>
+                    <button id="btn">Work HARD<br>Play HARDER</button>
+                    <h5>Good practice: keep your motherfuckin back straight</h5>
+                </div>
+            </div>
+        </main>
 
         <script src="./index.js" type="module"></script>
+
     </div>
 </body>
+
 </html>
